@@ -5,7 +5,15 @@ app.controller('productsCtrl', function ($scope, $sce, productsService, filterPr
   }
 
   $scope.showDetails = function (product) {
-  	
+  	$scope.displayProductDetails = true;
+  	$scope.selectedProduct = product;
+  	$scope.searchProducts = "";
+  };
+
+  $scope.closeDetails = function () {
+  	$scope.displayProductDetails = false;
+  	$scope.selectedProduct = null;
+  	$scope.searchProducts = "";
   };
 
   $scope.paginateProducts = function (page) {
@@ -19,6 +27,7 @@ app.controller('productsCtrl', function ($scope, $sce, productsService, filterPr
   });
 
   function getProductsByName(search) {
+  	$scope.displayProductDetails = false;
 		$scope.busyLoading = true;
   	productsService
   		.getProducts()

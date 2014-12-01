@@ -1,0 +1,23 @@
+<div class="row">
+	<div ng-if="busyLoading" align="center">
+  	<img ng-src="<%= image_path('ajax-loader.gif') %>" />
+	</div>
+
+  <div ng-if="!busyLoading" ng-repeat="product in products" class="col-sm-4">
+    <div class="thumbnail">
+      <img ng-src="{{product.image_url}}" alt="{{product.name}}" heigth="50%" width="50%" />
+      <div class="caption">
+        <h3>{{ product.name }}</h3>
+        <p ng-bind-html="product.short_description | limitTo: 200"></p>
+        <p><a href="#" ng-click="showDetails(product)" class="btn btn-primary" role="button">View</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <ul class="pager">
+    <li><a href="#" ng-click="paginateProducts(-1)">Previous</a></li>
+    <li><a href="#" ng-click="paginateProducts(1)">Next</a></li>
+  </ul>
+</nav>
