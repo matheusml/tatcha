@@ -1,5 +1,7 @@
-app.controller('productsCtrl', function ($scope, $sce, productsService, filterProductsService){
-	function init() {
+app.controller('productsCtrl', ['$scope', '$sce', 'productsService', 'filterProductsService', 
+  function ($scope, $sce, productsService, filterProductsService){
+	
+  function init() {
   	$scope.page = 1;
   	$scope.limit = 3;
   }
@@ -48,4 +50,4 @@ app.controller('productsCtrl', function ($scope, $sce, productsService, filterPr
   }
     
    init();
-});
+}]);
