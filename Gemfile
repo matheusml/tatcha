@@ -15,3 +15,8 @@ gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails',
                               branch: '3.0.0'
 
 gem 'angularjs-rails'
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor', '0.0.2'
+end
